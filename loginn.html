@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Website</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d')
+        no-repeat center center/cover;
+
+    min-height: 100vh;
+}
+
+
+/* TITEL */
+
+h1 {
+    margin-top: 50px;
+    background: rgba(255,255,255,0.88);
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 32px;
+}
+
+
+/* ZOEKVAK */
+
+.search-box {
+    margin: 20px auto;
+}
+
+input {
+    padding: 12px;
+    width: 300px;
+    max-width: 90%;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+input:focus {
+    border-color: #555;
+}
+
+
+/* AUTO KAARTEN */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 0 20px 40px;
+}
+
+.card {
+    background: white;
+    margin: 15px;
+    width: 260px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+    font-size: 19px;
+}
+
+.card p {
+    padding: 0 10px 15px;
+    margin: 0;
+    color: gray;
+}
+
+
+/* POP-UP */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 20px;
+    width: 400px;
+    max-width: 90%;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-content h2 {
+    margin-top: 5px;
+}
+
+.modal-content p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+/* TELEFOON */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 26px;
+        margin-top: 25px;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 320px;
+    }
+
+    .card img {
+        height: 180px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<h1>Welkom</h1>
+
+
+<div class="search-box">
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Zoek een auto..."
+    >
+
+</div>
+
+
+<div class="container">
+
+
+    <!-- BMW -->
+
+    <div
+        class="card"
+        data-name="bmw m4 competition"
+        onclick="openModal(
+        'BMW M4 Competition',
+        'Prijs: €69.900 | 2020 | 50.825 km | 450 PK',
+        'https://images.unsplash.com/photo-1617814076367-b759c7d7e738'
+        )"
+    >
+
+        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738">
+
+        <h3>BMW M4 Competition</h3>
+
+        <p>450 PK • 2020</p>
+
+    </div>
+
+
+
+    <!-- AUDI -->
+
+    <div
+        class="card"
+        data-name="audi rs6"
+        onclick="openModal(
+        'Audi RS6',
+        'Prijs: €89.000 | 2021 | 30.000 km | 600 PK',
+        'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6'
+        )"
+    >
+
+        <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6">
+
+        <h3>Audi RS6</h3>
+
+        <p>600 PK • 2021</p>
+
+    </div>
+
+
+
+    <!-- MERCEDES -->
+
+    <div
+        class="card"
+        data-name="mercedes amg c63"
+        onclick="openModal(
+        'Mercedes AMG C63',
+        'Prijs: €75.000 | 2019 | 60.000 km | 510 PK',
+        'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8'
+        )"
+    >
+
+        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8">
+
+        <h3>Mercedes AMG C63</h3>
+
+        <p>510 PK • 2019</p>
+
+    </div>
+
+
+
+    <!-- PORSCHE -->
+
+    <div
+        class="card"
+        data-name="porsche 911"
+        onclick="openModal(
+        'Porsche 911',
+        'Prijs: €120.000 | 2022 | 10.000 km | 450 PK',
+        'https://images.unsplash.com/photo-1503376780353-7e6692767b70'
+        )"
+    >
+
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+
+        <h3>Porsche 911</h3>
+
+        <p>450 PK • 2022</p>
+
+    </div>
+
+
+
+    <!-- VOLKSWAGEN GOLF GTI TCR -->
+
+    <div
+        class="card"
+        data-name="volkswagen golf gti tcr"
+        onclick="openModal(
+        'Volkswagen Golf GTI TCR',
+        'Prijs: €29.089 | 2.0 TSI | 290 PK | GTI TCR',
+        'golf.png'
+        )"
+    >
+
+        <img src="golf.png">
+
+        <h3>Volkswagen Golf GTI TCR</h3>
+
+        <p>290 PK • 2.0 TSI</p>
+
+    </div>
+
+
+
+    <!-- TOYOTA SUPRA -->
+
+    <div
+        class="card"
+        data-name="toyota supra"
+        onclick="openModal(
+        'Toyota Supra',
+        'Prijs: €119.995 | 3.0i Twin Turbo | Top Secret | 650 PK',
+        'supra.png'
+        )"
+    >
+
+        <img src="supra.png">
+
+        <h3>Toyota Supra</h3>
+
+        <p>650 PK • 3.0i Twin Turbo</p>
+
+    </div>
+
+
+
+    <!-- TESLA MODEL 3 -->
+
+    <div
+        class="card"
+        data-name="tesla model 3 performance"
+        onclick="openModal(
+        'Tesla Model 3 Performance',
+        'Prijs: €28.995 | Performance AWD | 75 kWh | SOH 89%',
+        'tesla.png'
+        )"
+    >
+
+        <img src="tesla.png">
+
+        <h3>Tesla Model 3 Performance</h3>
+
+        <p>AWD • 75 kWh • SOH 89%</p>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- POP-UP -->
+
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+
+        <span
+            class="close"
+            onclick="closeModal()"
+        >
+            &times;
+        </span>
+
+        <img id="modalImg">
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalInfo"></p>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+/* ZOEKFUNCTIE */
+
+document
+.getElementById("search")
+.addEventListener("keyup", function() {
+
+    let value = this.value.toLowerCase();
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card) {
+
+        let name = card
+        .getAttribute("data-name")
+        .toLowerCase();
+
+        if (name.includes(value)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+
+/* POP-UP OPENEN */
+
+function openModal(title, info, img) {
+
+    document
+    .getElementById("modalTitle")
+    .innerText = title;
+
+    document
+    .getElementById("modalInfo")
+    .innerText = info;
+
+    document
+    .getElementById("modalImg")
+    .src = img;
+
+    document
+    .getElementById("modal")
+    .style.display = "block";
+
+}
+
+
+
+/* POP-UP SLUITEN */
+
+function closeModal() {
+
+    document
+    .getElementById("modal")
+    .style.display = "none";
+
+}
+
+
+
+/* BUITEN POP-UP KLIKKEN */
+
+window.onclick = function(event) {
+
+    let modal = document.getElementById("modal");
+
+    if (event.target == modal) {
+
+        closeModal();
+
+    }
+
+};
+
+
+</script>
+
+</body>
+</html>

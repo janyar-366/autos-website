@@ -1,0 +1,416 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { MapPin, Phone, Clock, Scissors, Ruler, Sparkles, Star, ArrowRight } from "lucide-react";
+import heroImage from "../assets/hero-kleermaker.jpg";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "ESTA Kleermaker | Ambachtelijke Kleermaker in Kampen" },
+      {
+        name: "description",
+        content:
+          "ESTA Kleermaker in Kampen: vakkundige reparaties, vermaak en maatwerk. Kom langs aan de Oudestraat 62 of bel 06 35681387.",
+      },
+      { property: "og:title", content: "ESTA Kleermaker | Ambachtelijke Kleermaker in Kampen" },
+      {
+        property: "og:description",
+        content:
+          "ESTA Kleermaker in Kampen: vakkundige reparaties, vermaak en maatwerk. Kom langs aan de Oudestraat 62 of bel 06 35681387.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Index,
+});
+
+function Index() {
+  return (
+    <main className="min-h-screen bg-background text-foreground">
+      {/* Hero */}
+      <section className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden">
+        <img
+          src={heroImage}
+          alt="Ambachtelijke kleermaker werkplaats"
+          className="absolute inset-0 h-full w-full object-cover"
+          width={1920}
+          height={1088}
+        />
+        <div className="bg-hero-overlay absolute inset-0" />
+
+        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center text-cream">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-gold">
+            Ambacht & aandacht
+          </p>
+          <h1 className="text-balance text-5xl font-semibold leading-[1.1] sm:text-6xl md:text-7xl">
+            ESTA Kleermaker
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-balance text-lg leading-relaxed text-cream/90 sm:text-xl">
+            Al jaren het vertrouwde adres in Kampen voor reparaties, vermaak en
+            maatwerk. Met een glimlach en oog voor detail brengen wij jouw kleding
+            weer in topconditie.
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="tel:0635681387"
+              className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-semibold text-ink transition-all hover:bg-gold-light"
+            >
+              <Phone className="h-4 w-4" />
+              Bel direct
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full border border-cream/40 bg-cream/10 px-8 py-4 text-sm font-semibold text-cream backdrop-blur-sm transition-all hover:bg-cream/20"
+            >
+              Routebeschrijving
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+
+          <div className="mt-12 flex items-center justify-center gap-2 text-gold">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="h-6 w-6 fill-current" />
+            ))}
+          </div>
+          <p className="mt-2 text-sm text-cream/80">5,0 uit 39 reviews</p>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="px-6 py-24 sm:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-warm">Wat we doen</p>
+            <h2 className="mt-3 text-4xl font-semibold text-foreground">Onze diensten</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+              Van kleine reparaties tot volledige aanpassingen: wij zorgen dat jouw
+              kleding perfect past.
+            </p>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <ServiceCard
+              icon={<Scissors className="h-7 w-7" />}
+              title="Reparaties"
+              description="Gescheurde naden, loszittende ritsen, kapotte knopen: wij maken het weer helemaal in orde."
+            />
+            <ServiceCard
+              icon={<Ruler className="h-7 w-7" />}
+              title="Vermaak"
+              description="Broeken korter maken, jurken innemen, mouwen verkleinen: altijd precies op maat."
+            />
+            <ServiceCard
+              icon={<Sparkles className="h-7 w-7" />}
+              title="Maatwerk"
+              description="Speciale wensen? Wij denken graag met je mee en maken unieke stukken helemaal naar jouw smaak."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section className="bg-cream px-6 py-24 sm:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-warm">Waardering</p>
+            <h2 className="mt-3 text-4xl font-semibold text-foreground">Wat klanten zeggen</h2>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            <ReviewCard
+              name="Mariska Van Woerden"
+              text="Geweldig, uitstekende service! Zeer betaalbaar. Het werk wordt hier heel goed gedaan."
+            />
+            <ReviewCard
+              name="Ingrid Scholten"
+              text="Ik kreeg een heel vriendelijke service en mijn wensen werden zorgvuldig gehoord. Mijn jas met de lange rits die vervangen moest worden ziet er prachtig uit. Ik kom hier zeker terug!"
+            />
+            <ReviewCard
+              name="Samantha van Zanten"
+              text="De naden van mijn winterjas begonnen los te laten. Door regen en wind is mijn jas direct gerepareerd! Echt top! Bedankt buurman. Mooi service, netjes en vriendelijk."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="px-6 py-24 sm:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="overflow-hidden rounded-3xl bg-card shadow-xl">
+            <div className="grid lg:grid-cols-2">
+              <div className="bg-ink p-10 text-cream sm:p-14">
+                <p className="text-sm font-medium uppercase tracking-[0.2em] text-gold">Contact</p>
+                <h2 className="mt-3 text-4xl font-semibold">Kom langs</h2>
+                <p className="mt-4 text-cream/80">
+                  We zijn gevestigd in het centrum van Kampen. Loop gerust binnen,
+                  bellen mag ook.
+                </p>
+
+                <ul className="mt-10 space-y-6">
+                  <li className="flex items-start gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream/10 text-gold">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-cream">Adres</p>
+                      <p className="text-cream/80">Oudestraat 62, 8261 CS Kampen</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream/10 text-gold">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-cream">Telefoon</p>
+                      <a
+                        href="tel:0635681387"
+                        className="text-cream/80 transition-colors hover:text-gold"
+                      >
+                        06 35681387
+                      </a>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream/10 text-gold">
+                      <Clock className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-cream">Openingstijden</p>
+                      <p className="text-cream/80">Maandag t/m zaterdag open</p>
+                      <p className="text-cream/80">Vrijdag gesloten om 18:00</p>
+                    </div>
+                  </li>
+                </ul>
+
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Oudestraat+62,+8261+CS+Kampen"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-semibold text-ink transition-all hover:bg-gold-light"
+                >
+                  <MapPin className="h-4 w-4" />
+                  Routebeschrijving in Google Maps
+                </a>
+              </div>
+
+              <div className="min-h-[400px] bg-muted lg:min-h-full">
+                <iframe
+                  title="Locatie ESTA Kleermaker"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2424.1234567890123!2d5.9111234!3d52.5581234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c62a1234567890%3A0xabcdef1234567890!2sOudestraat%2062%2C%208261%20CS%20Kampen!5e0!3m2!1snl!2snl!4v1234567890123"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: "100%" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-background px-6 py-12">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+            <div className="text-center sm:text-left">
+              <p className="text-lg font-semibold text-foreground">ESTA Kleermaker</p>
+              <p className="text-sm text-muted-foreground">
+                Oudestraat 62, 8261 CS Kampen
+              </p>
+            </div>
+            <a
+              href="tel:0635681387"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            >
+              <Phone className="h-4 w-4" />
+              06 35681387
+            </a>
+          </div>
+          <p className="mt-8 text-center text-xs text-muted-foreground">
+            © {new Date().getFullYear()} ESTA Kleermaker. Alle rechten voorbehouden.
+          </p>
+        </div>
+      </footer>
+    </main>
+  );
+}
+
+function ServiceCard({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="group rounded-2xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:shadow-lg">
+      <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-warm-light text-warm transition-colors group-hover:bg-warm group-hover:text-cream">
+        {icon}
+      </div>
+      <h3 className="mt-6 text-2xl font-semibold text-card-foreground">{title}</h3>
+      <p className="mt-3 leading-relaxed text-muted-foreground">{description}</p>
+    </div>
+  );
+}
+
+function ReviewCard({ name, text }: { name: string; text: string }) {
+  return (
+    <div className="flex flex-col rounded-2xl border border-border bg-background p-8 shadow-sm">
+      <div className="flex gap-1 text-gold">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} className="h-5 w-5 fill-current" />
+        ))}
+      </div>
+      <p className="mt-5 flex-1 italic leading-relaxed text-foreground">&ldquo;{text}&rdquo;</p>
+      <div className="mt-6 flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-warm text-sm font-semibold text-cream">
+          {name
+            .split(" ")
+            .map((n) => n[0])
+            .join("")}
+        </div>
+        <p className="text-sm font-medium text-foreground">{name}</p>
+      </div>
+    </div>
+  );
+}
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system: ESTA Kleermaker
+ * Warm, elegant tailor craftsmanship.
+ * Colors use oklch format.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-ink: var(--ink);
+  --color-warm: var(--warm);
+  --color-warm-light: var(--warm-light);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.98 0.01 80);
+  --foreground: oklch(0.25 0.04 60);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.04 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.04 60);
+  --primary: oklch(0.35 0.08 55);
+  --primary-foreground: oklch(0.98 0.01 80);
+  --secondary: oklch(0.94 0.03 80);
+  --secondary-foreground: oklch(0.35 0.08 55);
+  --muted: oklch(0.93 0.02 80);
+  --muted-foreground: oklch(0.5 0.04 60);
+  --accent: oklch(0.55 0.12 75);
+  --accent-foreground: oklch(0.98 0.01 80);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.85 0.03 75);
+  --input: oklch(0.85 0.03 75);
+  --ring: oklch(0.55 0.12 75);
+  --chart-1: oklch(0.45 0.12 55);
+  --chart-2: oklch(0.55 0.1 75);
+  --chart-3: oklch(0.65 0.08 90);
+  --chart-4: oklch(0.75 0.06 75);
+  --chart-5: oklch(0.85 0.04 60);
+  --cream: oklch(0.97 0.015 85);
+  --cream-dark: oklch(0.91 0.025 75);
+  --gold: oklch(0.72 0.14 80);
+  --gold-light: oklch(0.88 0.08 80);
+  --ink: oklch(0.22 0.04 55);
+  --warm: oklch(0.45 0.08 55);
+  --warm-light: oklch(0.93 0.03 80);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", ui-serif, Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--ink) 55%, transparent) 0%,
+      color-mix(in oklab, var(--ink) 30%, transparent) 60%,
+      var(--background) 100%
+    );
+  }
+}
+Extra benodigdheden
+Plaats de hero-afbeelding op src/assets/hero-kleermaker.jpg (deze zit nu al in het project).
+Voeg in src/routes/__root.tsx de Google Fonts toe in de links array:
+{
+  rel: "preconnect",
+  href: "https://fonts.googleapis.com",
+},
+{
+  rel: "preconnect",
+  href: "https://fonts.gstatic.com",
+  crossOrigin: "anonymous",
+},
+{
+  rel: "stylesheet",
+  href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap",
+},

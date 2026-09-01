@@ -1,33 +1,34 @@
-# Auto Website
+# Auto Website 
+ 
+## Over het project 
+ 
+Dit project is een website waarop verschillende auto,s worden weergegeven met een afbeelding en informatie zoals het vermogen en het bouwjaar. 
+ 
+## Doel 
+ 
+ 
+Het doel van deze opdracht is om HTML, CSS en JavaScript in aparte bestanden gebruiken. De website moet responsive zijn zodat de code op een telefoon iPad laptop of computer netjes en goed wordt weergegeven. 
+ 
+ 
+* HTML 
+* CSS 
+* Visual Studio Code 
+* git 
+ 
+## Wat is toegevoegd? 
+ 
 
-## Over het project
-
-Dit project is een website waarop verschillende auto's worden weergegeven met een afbeelding en informatie, zoals het vermogen en het bouwjaar.
-
-## Doel
-
-
-Het doel van deze opdracht is om HTML, CSS en JavaScript in aparte bestanden te gebruiken. De website moet responsive zijn, zodat de code op een telefoon, iPad, laptop of computer netjes en goed wordt weergegeven.
-
-
-* HTML
-* CSS
-* Visual Studio Code
-* git
-
-## Wat is toegevoegd?
-
-* ### Wat is toegevoegd?
-
-* HTML, CSS en JavaScript worden in aparte bestanden gezet.
-* De website is responsive gemaakt.
-* De website past zich automatisch aan op telefoons, iPads, laptops en computers.
-* De afbeeldingen en auto-kaarten worden netjes aangepast aan het scherm.
-
+ 
+* HTML CSS en JavaScript worden in aparte bestanden gezet. 
+* De website is responsive gemaakt. 
+* De website past zich automatisch aan op telefoons iPads laptops en computers. 
+* De afbeeldingen en auto-kaarten worden netjes aangepast aan het scherm. 
+ 
+*  
+*  
 * 
-* 
-*
-## Auteur
-
-Naam: Janyar
-Datum: 18-08-2026
+## Auteur 
+ 
+Naam: Janyar 
+Datum: 18-08-2026 
+ 

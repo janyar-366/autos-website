@@ -117,4 +117,22 @@ h1{
   .search-box{
     padding: 0 20px;px;
  }
- 
+    input{
+        width:100%;
+    }
+     .container{
+        padding:10px;px;
+     } 
+      .card{
+        width:90%;
+        max-width: 350px;px;
+        margin: 10px auto;px;
+      }
+      .card img{
+        height: 200px;px;
+      }
+      .modal-content{
+        margin: 10% auto;px;
+      }
+
+ }

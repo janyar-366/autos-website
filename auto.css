@@ -110,12 +110,6 @@ input:focus{
 
 @media(max-width:600px){
 
-.card{
-    width:90%;
-}
-
-.card img{
-    height:180px;
-}
-
-}
+h1{
+    font: size 26px;px;
+    margin: top 25px;px;

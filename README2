@@ -1,0 +1,29 @@
+# Taken-app
+
+## Over het project
+
+Dit project is een taken-app die wordt gemaakt met Laravel. Gebruikers kunnen taken bekijken, toevoegen, aanpassen en verwijderen.
+
+## Doel
+
+Het doel van deze opdracht is om te leren werken met Laravel en PHP.
+
+## Gebruikte programma’s
+
+* Laravel
+* PHP
+* Composer
+* Visual Studio Code
+
+## Wat wordt toegevoegd?
+
+* Taken bekijken
+* Nieuwe taken toevoegen
+* Taken aanpassen
+* Taken verwijderen
+* Taken als voltooid markeren
+
+## Auteur
+
+Naam: Janyar
+Datum: 17-09-2026

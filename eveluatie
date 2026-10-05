@@ -1,0 +1,9 @@
+## Evaluatie 
+Tijdens deze opdracht heb ik geleerd wat PHP, Composer en Laravel zijn en waarvoor ze worden gebruikt. Ik heb Composer geïnstalleerd en daarna met Composer een nieuw Laravel-project gemaakt. Tijdens de installatie kreeg ik een foutmelding, omdat de ZIP-extensie van PHP uitgeschakeld was. Ik heb deze fout opgelost door de ZIP-extensie aan te zetten in het bestand `php.ini`.
+
+Daarna heb ik het Laravel-project geopend in Visual Studio Code en de website gestart met `php artisan serve`. Ook heb ik de standaard Laravel-pagina aangepast en mijn eigen pagina met de titel “Mijn taken” gemaakt. In het begin vond ik de opdracht lastig, maar door alles stap voor stap uit te voeren, is het uiteindelijk gelukt. Ik begrijp nu beter hoe PHP, Composer en Laravel samenwerken.
+
+
+## Auteur
+
+**Naam:** Janyar

@@ -1,138 +1,275 @@
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-    font-family:Arial,sans-serif;
-    margin:0;
-    text-align:center;
+[hidden] {
+    display: none !important;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+    color: #202631;
 
     background:
-    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
-    url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d")
-    no-repeat center center/cover;
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d")
+        no-repeat center center / cover;
 
-    min-height:100vh;
+    background-color: #18222d;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
-h1{
-    margin-top:50px;
-    background:rgba(255,255,255,.9);
-    display:inline-block;
-    padding:12px 25px;
-    border-radius:10px;
+button,
+input {
+    font: inherit;
 }
 
-.search-box{
-    margin:20px auto;
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #172e47;
+    color: white;
+    cursor: pointer;
 }
 
-input{
-    width:300px;
-    max-width:90%;
-    padding:12px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    font-size:16px;
+button:hover {
+    background: #294b70;
 }
 
-input:focus{
-    border-color:#555;
-    outline:none;
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #2782d5;
+    outline-offset: 3px;
 }
 
-.container{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    padding:20px;
+/* INLOGPAGINA */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
 }
 
-.card{
-    background:#fff;
-    width:260px;
-    margin:15px;
-    border-radius:12px;
-    overflow:hidden;
-    cursor:pointer;
-    transition:.3s;
-    box-shadow:0 4px 10px rgba(0,0,0,.3);
+.login-panel {
+    width: 100%;
+    max-width: 420px;
+    padding: 36px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    text-align: left;
 }
 
-.card:hover{
-    transform:scale(1.05);
+.login-panel h1 {
+    margin: 0 0 14px;
+    font-size: 32px;
 }
 
-.card img{
-    width:100%;
-    height:160px;
-    object-fit:cover;
+.login-panel p {
+    line-height: 1.5;
 }
 
-.card h3{
-    margin:10px 0;
+label {
+    display: block;
+    margin: 20px 0 8px;
+    font-weight: bold;
 }
 
-.card p{
-    color:gray;
-    padding-bottom:15px;
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #aab4bf;
+    border-radius: 8px;
+    background: white;
+    color: #202631;
 }
 
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.7);
+form button[type="submit"] {
+    width: 100%;
 }
 
-.modal-content{
-    background:#fff;
-    width:400px;
-    max-width:90%;
-    margin:5% auto;
-    padding:20px;
-    border-radius:15px;
-    text-align:left;
+.secondary {
+    margin-top: 10px;
+    padding: 6px 0;
+    color: #172e47;
+    background: transparent;
+    text-decoration: underline;
 }
 
-.modal-content img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:10px;
+.secondary:hover {
+    background: transparent;
 }
 
-.close{
-    float:right;
-    cursor:pointer;
-    font-size:28px;
+.error {
+    color: #ae1829;
+    min-height: 20px;
+    font-size: 14px;
 }
 
-@media(max-width:600px){
+.demo-note {
+    margin-bottom: 0;
+    font-size: 13px;
+    color: #56616e;
+}
 
-h1{
-    font: size 26px;px;
-    margin: top 25px;px; 
- }
-  .search-box{
-    padding: 0 20px;px;
- }
-    input{
-        width:100%;
+/* TITEL EN UITLOGKNOP */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    max-width: 1440px;
+    margin: auto;
+    padding: 28px;
+}
+
+.topbar h1 {
+    margin: 0;
+    padding: 12px 25px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    font-size: 32px;
+}
+
+/* ZOEKVAK */
+
+.search-box {
+    max-width: 400px;
+    margin: 0 auto 20px;
+    padding: 0 20px;
+}
+
+.search-box label {
+    color: white;
+}
+
+/* AUTOKAARTEN */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    padding: 20px 24px 40px;
+}
+
+.card {
+    width: 260px;
+    padding: 0;
+    background: white;
+    color: #202631;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    background: white;
+    transform: translateY(-5px);
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 14px 10px 8px;
+    font-size: 19px;
+}
+
+.card p {
+    margin: 0;
+    padding: 0 10px 18px;
+    color: #606873;
+}
+
+.no-results {
+    color: white;
+}
+
+/* POP-UP */
+
+dialog {
+    width: 420px;
+    max-width: calc(100% - 32px);
+    max-height: 90vh;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+dialog img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+dialog p {
+    line-height: 1.6;
+}
+
+.close {
+    display: block;
+    margin: 0 0 10px auto;
+    padding: 4px 12px;
+    font-size: 26px;
+}
+
+/* TELEFOON */
+
+@media (max-width: 600px) {
+    .login-panel {
+        padding: 26px;
     }
-     .container{
-        padding:10px;px;
-     } 
-      .card{
-        width:90%;
-        max-width: 350px;px;
-        margin: 10px auto;px;
-      }
-      .card img{
-        height: 200px;px;
-      }
-      .modal-content{
-        margin: 10% auto;px;
-      }
 
- }
+    .login-panel h1,
+    .topbar h1 {
+        font-size: 26px;
+    }
+
+    .topbar {
+        padding: 20px 16px;
+    }
+
+    .topbar h1 {
+        padding: 12px 16px;
+    }
+
+    .container {
+        padding: 16px 16px 32px;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        transition: none;
+    }
+}

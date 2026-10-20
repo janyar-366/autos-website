@@ -1,0 +1,28 @@
+# Auto Website met inlogpagina
+
+## Over het project
+
+Een autowebsite met een inlogpagina. Na het inloggen kun je auto's zoeken en informatie bekijken.
+
+## Doel
+. inlogpagina maken 
+
+## Gebruikte technieken
+
+* HTML
+* CSS
+* JavaScript
+* Visual Studio Code
+* Git
+
+## Wat is toegevoegd?
+
+* Inlogpagina met foutmeldingen.
+* Wachtwoord tonen en verbergen.
+* Uitlogknop.
+* Zoekfunctie
+
+## Auteur
+
+Naam: Janyar  
+Datum: 20-10-2026

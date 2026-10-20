@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Oefenlogin: geen echte beveiliging.
 const DEMO_USERNAME = "janyar";
 const DEMO_PASSWORD = "auto123";
@@ -18,6 +19,14 @@ const modal = document.getElementById("modal");
 const closeModalButton = document.getElementById("closeModal");
 
 // AUTO'S
+=======
+document.getElementById("search").addEventListener("keyup", function () {
+
+    let value = this.value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card) {
+>>>>>>> 9ca564f654721fd3c7363e01fd71fe0b8a137bbf
 
 const cars = [
     {
@@ -76,6 +85,7 @@ const cars = [
     }
 ];
 
+<<<<<<< HEAD
 // INLOGGEN
 
 if (loginForm) {
@@ -120,8 +130,15 @@ if (loginForm) {
 
             password.value = "";
             password.focus();
+=======
+        if (name.includes(value)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+>>>>>>> 9ca564f654721fd3c7363e01fd71fe0b8a137bbf
         }
     });
+<<<<<<< HEAD
 }
 
 // WACHTWOORD TONEN OF VERBERGEN
@@ -129,6 +146,32 @@ if (loginForm) {
 function resetPasswordVisibility() {
     if (password) {
         password.type = "password";
+=======
+
+});
+
+function openModal(title, info, img) {
+
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalInfo").innerText = info;
+    document.getElementById("modalImg").src = img;
+    document.getElementById("modal").style.display = "block";
+
+}
+
+function closeModal() {
+
+    document.getElementById("modal").style.display = "none";
+
+}
+
+window.onclick = function(event) {
+
+    let modal = document.getElementById("modal");
+
+    if (event.target === modal) {
+        closeModal();
+>>>>>>> 9ca564f654721fd3c7363e01fd71fe0b8a137bbf
     }
 
     if (togglePassword) {

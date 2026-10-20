@@ -1,32 +1,209 @@
-<<<<<<< HEAD
-// Oefenlogin: geen echte beveiliging.
-const DEMO_USERNAME = "janyar";
-const DEMO_PASSWORD = "auto123";
+// Accounts blijven beschikbaar totdat de pagina wordt vernieuwd.
+
+const accounts = new Map([
+    ["janyar", "auto123"]
+]);
 
 const loginPage = document.getElementById("loginPage");
+const registerPage = document.getElementById("registerPage");
 const carPage = document.getElementById("carPage");
+
 const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
 
 const username = document.getElementById("username");
 const password = document.getElementById("password");
-const loginError = document.getElementById("loginError");
-const togglePassword = document.getElementById("togglePassword");
-const logoutButton = document.getElementById("logoutButton");
 
+const newUsername = document.getElementById("newUsername");
+const newPassword = document.getElementById("newPassword");
+const confirmPassword = document.getElementById("confirmPassword");
+
+const loginError = document.getElementById("loginError");
+const loginSuccess = document.getElementById("loginSuccess");
+const registerError = document.getElementById("registerError");
+
+const togglePassword = document.getElementById("togglePassword");
 const search = document.getElementById("search");
 const container = document.getElementById("carContainer");
 const modal = document.getElementById("modal");
-const closeModalButton = document.getElementById("closeModal");
+
+// PAGINA WISSELEN
+
+function showPage(page) {
+    loginPage.hidden = true;
+    registerPage.hidden = true;
+    carPage.hidden = true;
+
+    page.hidden = false;
+}
+
+// REGISTRATIE OPENEN
+
+document.getElementById("showRegister").addEventListener("click", function () {
+    loginForm.reset();
+    resetPasswordVisibility();
+
+    loginError.textContent = "";
+    loginSuccess.textContent = "";
+    registerError.textContent = "";
+
+    showPage(registerPage);
+
+    document.title = "Auto Website | Registreren";
+    document.getElementById("registerTitle").focus();
+});
+
+// TERUG NAAR INLOGGEN
+
+document.getElementById("backToLogin").addEventListener("click", function () {
+    registerForm.reset();
+    registerError.textContent = "";
+
+    showPage(loginPage);
+
+    document.title = "Auto Website | Inloggen";
+    username.focus();
+});
+
+// ACCOUNT MAKEN
+
+registerForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    registerError.textContent = "";
+
+    const chosenUsername = newUsername.value.trim().toLowerCase();
+    const chosenPassword = newPassword.value;
+
+    if (!/^[a-z0-9_-]{3,30}$/.test(chosenUsername)) {
+        registerError.textContent =
+            "Gebruik 3 tot 30 letters, cijfers, streepjes of underscores.";
+
+        newUsername.focus();
+        return;
+    }
+
+    if (accounts.has(chosenUsername)) {
+        registerError.textContent =
+            "Deze gebruikersnaam bestaat al. Kies een andere.";
+
+        newUsername.focus();
+        return;
+    }
+
+    if (chosenPassword.length < 8) {
+        registerError.textContent =
+            "Je wachtwoord moet minimaal 8 tekens bevatten.";
+
+        newPassword.focus();
+        return;
+    }
+
+    if (chosenPassword !== confirmPassword.value) {
+        registerError.textContent =
+            "De wachtwoorden zijn niet hetzelfde.";
+
+        confirmPassword.focus();
+        return;
+    }
+
+    accounts.set(chosenUsername, chosenPassword);
+
+    registerForm.reset();
+    loginForm.reset();
+    resetPasswordVisibility();
+
+    username.value = chosenUsername;
+    loginError.textContent = "";
+
+    loginSuccess.textContent =
+        "Je account is aangemaakt! Je kunt nu inloggen.";
+
+    showPage(loginPage);
+
+    document.title = "Auto Website | Inloggen";
+    password.focus();
+});
+
+// INLOGGEN
+
+loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    loginError.textContent = "";
+    loginSuccess.textContent = "";
+
+    const enteredUsername = username.value.trim().toLowerCase();
+    const enteredPassword = password.value;
+
+    if (
+        accounts.has(enteredUsername) &&
+        accounts.get(enteredUsername) === enteredPassword
+    ) {
+        loginForm.reset();
+        resetPasswordVisibility();
+
+        showPage(carPage);
+
+        const carTitle = document.getElementById("carTitle");
+
+        carTitle.textContent = "Welkom, " + enteredUsername;
+        document.title = "Auto Website | Auto's";
+
+        carTitle.focus();
+    } else {
+        loginError.textContent =
+            "De gebruikersnaam of het wachtwoord is onjuist.";
+
+        password.value = "";
+        password.focus();
+    }
+});
+
+// WACHTWOORD TONEN OF VERBERGEN
+
+function resetPasswordVisibility() {
+    password.type = "password";
+    togglePassword.textContent = "Toon wachtwoord";
+    togglePassword.setAttribute("aria-pressed", "false");
+}
+
+togglePassword.addEventListener("click", function () {
+    const showPassword = password.type === "password";
+
+    password.type = showPassword ? "text" : "password";
+
+    togglePassword.textContent = showPassword
+        ? "Verberg wachtwoord"
+        : "Toon wachtwoord";
+
+    togglePassword.setAttribute(
+        "aria-pressed",
+        String(showPassword)
+    );
+});
+
+// UITLOGGEN
+
+document.getElementById("logoutButton").addEventListener("click", function () {
+    modal.close();
+
+    loginForm.reset();
+    resetPasswordVisibility();
+
+    loginError.textContent = "";
+    loginSuccess.textContent = "";
+
+    search.value = "";
+    filterCars();
+
+    showPage(loginPage);
+
+    document.title = "Auto Website | Inloggen";
+    username.focus();
+});
 
 // AUTO'S
-=======
-document.getElementById("search").addEventListener("keyup", function () {
-
-    let value = this.value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
-
-    cards.forEach(function(card) {
->>>>>>> 9ca564f654721fd3c7363e01fd71fe0b8a137bbf
 
 const cars = [
     {
@@ -85,307 +262,91 @@ const cars = [
     }
 ];
 
-<<<<<<< HEAD
-// INLOGGEN
-
-if (loginForm) {
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const correctUsername =
-            username.value.trim() === DEMO_USERNAME;
-
-        const correctPassword =
-            password.value === DEMO_PASSWORD;
-
-        if (correctUsername && correctPassword) {
-            if (loginError) {
-                loginError.textContent = "";
-            }
-
-            // Auto-overzicht op dezelfde pagina.
-            if (loginPage && carPage && container) {
-                loginForm.reset();
-                resetPasswordVisibility();
-
-                loginPage.hidden = true;
-                carPage.hidden = false;
-
-                document.title = "Auto Website | Auto's";
-
-                const carTitle = document.getElementById("carTitle");
-
-                if (carTitle) {
-                    carTitle.focus();
-                }
-            } else {
-                // Auto-overzicht in een apart bestand.
-                window.location.href = "autos.html";
-            }
-        } else {
-            if (loginError) {
-                loginError.textContent =
-                    "De gebruikersnaam of het wachtwoord is onjuist.";
-            }
-
-            password.value = "";
-            password.focus();
-=======
-        if (name.includes(value)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
->>>>>>> 9ca564f654721fd3c7363e01fd71fe0b8a137bbf
-        }
-    });
-<<<<<<< HEAD
-}
-
-// WACHTWOORD TONEN OF VERBERGEN
-
-function resetPasswordVisibility() {
-    if (password) {
-        password.type = "password";
-=======
-
-});
-
-function openModal(title, info, img) {
-
-    document.getElementById("modalTitle").innerText = title;
-    document.getElementById("modalInfo").innerText = info;
-    document.getElementById("modalImg").src = img;
-    document.getElementById("modal").style.display = "block";
-
-}
-
-function closeModal() {
-
-    document.getElementById("modal").style.display = "none";
-
-}
-
-window.onclick = function(event) {
-
-    let modal = document.getElementById("modal");
-
-    if (event.target === modal) {
-        closeModal();
->>>>>>> 9ca564f654721fd3c7363e01fd71fe0b8a137bbf
-    }
-
-    if (togglePassword) {
-        togglePassword.textContent = "Toon wachtwoord";
-        togglePassword.setAttribute("aria-pressed", "false");
-    }
-}
-
-if (togglePassword && password) {
-    togglePassword.addEventListener("click", function () {
-        const showPassword = password.type === "password";
-
-        password.type = showPassword ? "text" : "password";
-
-        togglePassword.textContent = showPassword
-            ? "Verberg wachtwoord"
-            : "Toon wachtwoord";
-
-        togglePassword.setAttribute(
-            "aria-pressed",
-            String(showPassword)
-        );
-    });
-}
-
 // AUTOKAARTEN MAKEN
-// Alleen uitvoeren als de container op deze pagina bestaat.
 
-if (container) {
-    container.replaceChildren();
+cars.forEach(function (car) {
+    const card = document.createElement("button");
 
-    cars.forEach(function (car) {
-        const card = document.createElement("button");
+    card.type = "button";
+    card.className = "card";
+    card.dataset.name = car.name.toLowerCase();
 
-        card.type = "button";
-        card.className = "card";
-        card.dataset.name = car.name.toLowerCase();
+    const image = document.createElement("img");
+    image.src = car.image;
+    image.alt = car.name;
+    image.loading = "lazy";
 
-        const image = document.createElement("img");
-        image.src = car.image;
-        image.alt = car.name;
-        image.loading = "lazy";
+    const title = document.createElement("h3");
+    title.textContent = car.name;
 
-        const title = document.createElement("h3");
-        title.textContent = car.name;
+    const summary = document.createElement("p");
+    summary.textContent = car.summary;
 
-        const summary = document.createElement("p");
-        summary.textContent = car.summary;
+    card.append(image, title, summary);
 
-        card.append(image, title, summary);
-
-        card.addEventListener("click", function () {
-            openModal(car.name, car.info, car.image);
-        });
-
-        container.append(card);
+    card.addEventListener("click", function () {
+        openModal(car.name, car.info, car.image);
     });
-}
 
-// UITLOGGEN
-
-if (logoutButton) {
-    logoutButton.addEventListener("click", function () {
-        closeModal();
-
-        if (loginPage && carPage && loginForm) {
-            carPage.hidden = true;
-            loginPage.hidden = false;
-
-            loginForm.reset();
-            resetPasswordVisibility();
-
-            if (loginError) {
-                loginError.textContent = "";
-            }
-
-            if (search) {
-                search.value = "";
-                filterCars();
-            }
-
-            document.title = "Auto Website | Inloggen";
-
-            if (username) {
-                username.focus();
-            }
-        } else {
-            window.location.href = "login.html";
-        }
-    });
-}
+    container.append(card);
+});
 
 // ZOEKFUNCTIE
 
 function filterCars() {
-    if (!search) {
-        return;
-    }
-
     const value = search.value.trim().toLowerCase();
     let visibleCars = 0;
 
     document.querySelectorAll(".card").forEach(function (card) {
-        const name = (card.dataset.name || "").toLowerCase();
-        const matches = name.includes(value);
+        const matches = card.dataset.name.includes(value);
 
         card.hidden = !matches;
-
-        // Werkt ook met de oorspronkelijke CSS.
-        card.style.display = matches ? "" : "none";
 
         if (matches) {
             visibleCars++;
         }
     });
 
-    const noResults = document.getElementById("noResults");
-
-    if (noResults) {
-        noResults.hidden = visibleCars !== 0;
-    }
+    document.getElementById("noResults").hidden =
+        visibleCars !== 0;
 }
 
-if (search) {
-    search.addEventListener("input", filterCars);
-}
+search.addEventListener("input", filterCars);
 
 // POP-UP OPENEN
-// Ondersteunt zowel een dialog als je oorspronkelijke modal-div.
 
 function openModal(title, info, image) {
-    if (!modal) {
-        return;
-    }
+    document.getElementById("modalTitle").textContent = title;
+    document.getElementById("modalInfo").textContent = info;
 
-    const modalTitle = document.getElementById("modalTitle");
-    const modalInfo = document.getElementById("modalInfo");
-    const modalImg = document.getElementById("modalImg");
+    document.getElementById("modalImg").src = image;
+    document.getElementById("modalImg").alt = title;
 
-    if (modalTitle) {
-        modalTitle.textContent = title;
-    }
-
-    if (modalInfo) {
-        modalInfo.textContent = info;
-    }
-
-    if (modalImg) {
-        modalImg.src = image;
-        modalImg.alt = title;
-    }
-
-    if (modal.tagName === "DIALOG") {
-        if (!modal.open) {
-            modal.showModal();
-        }
-    } else {
-        modal.style.display = "block";
-    }
+    modal.showModal();
 }
 
 // POP-UP SLUITEN
 
-function closeModal() {
-    if (!modal) {
-        return;
-    }
-
-    if (modal.tagName === "DIALOG") {
-        modal.close();
-    } else {
-        modal.style.display = "none";
-    }
-}
-
-if (closeModalButton) {
-    closeModalButton.addEventListener("click", closeModal);
-}
+document.getElementById("closeModal").addEventListener("click", function () {
+    modal.close();
+});
 
 // BUITEN DE POP-UP KLIKKEN
 
-if (modal) {
-    modal.addEventListener("click", function (event) {
-        if (event.target !== modal) {
-            return;
-        }
+modal.addEventListener("click", function (event) {
+    if (event.target !== modal) {
+        return;
+    }
 
-        if (modal.tagName === "DIALOG") {
-            const bounds = modal.getBoundingClientRect();
+    const bounds = modal.getBoundingClientRect();
 
-            const outside =
-                event.clientX < bounds.left ||
-                event.clientX > bounds.right ||
-                event.clientY < bounds.top ||
-                event.clientY > bounds.bottom;
+    const outside =
+        event.clientX < bounds.left ||
+        event.clientX > bounds.right ||
+        event.clientY < bounds.top ||
+        event.clientY > bounds.bottom;
 
-            if (outside) {
-                closeModal();
-            }
-        } else {
-            closeModal();
-        }
-    });
-}
-
-// ESCAPE VOOR DE OORSPRONKELIJKE MODAL-DIV
-// Een dialog ondersteunt Escape automatisch.
-
-document.addEventListener("keydown", function (event) {
-    if (
-        event.key === "Escape" &&
-        modal &&
-        modal.tagName !== "DIALOG"
-    ) {
-        closeModal();
+    if (outside) {
+        modal.close();
     }
 });

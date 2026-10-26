@@ -311,7 +311,7 @@ function filterCars() {
         visibleCars !== 0;
 }
 
-search.addEventListener("input", filterCars);
+search.addEventListener("input", filterCars);4
 
 // POP-UP OPENEN
 

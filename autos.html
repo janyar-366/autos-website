@@ -1,23 +1,43 @@
+```html
 <!DOCTYPE html>
 <html lang="nl">
+
+<!-- INSTELLINGEN VAN DE PAGINA -->
+
 <head>
+    <!-- TEKENCODERING EN MOBIELE WEERGAVE -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TITEL VAN DE PAGINA -->
     <title>Auto Website | Inloggen</title>
 
+    <!-- CSS-BESTAND KOPPELEN -->
     <link rel="stylesheet" href="auto.css">
+
+    <!-- JAVASCRIPT-BESTAND KOPPELEN -->
     <script src="auto.js" defer></script>
 </head>
 
+
+<!-- INHOUD VAN DE WEBSITE -->
+
 <body>
     <main>
+
         <!-- INLOGGEN -->
+
         <section id="loginPage" class="auth-page">
             <div class="auth-panel">
-                <h1>Welkom terug</h1>
+
+                <!-- TITEL EN WELKOMSTTEKST -->
+                <h1>Welkom </h1>
                 <p>Log in om onze auto's te bekijken.</p>
 
+                <!-- INLOGFORMULIER -->
                 <form id="loginForm">
+
+                    <!-- GEBRUIKERSNAAM -->
                     <label for="username">Gebruikersnaam</label>
                     <input
                         type="text"
@@ -26,6 +46,7 @@
                         required
                     >
 
+                    <!-- WACHTWOORD -->
                     <label for="password">Wachtwoord</label>
                     <input
                         type="password"
@@ -34,6 +55,7 @@
                         required
                     >
 
+                    <!-- WACHTWOORD TONEN OF VERBERGEN -->
                     <button
                         type="button"
                         id="togglePassword"
@@ -43,17 +65,21 @@
                         Toon wachtwoord
                     </button>
 
+                    <!-- FOUT- EN SUCCESMELDINGEN -->
                     <p id="loginError" class="error" role="alert"></p>
                     <p id="loginSuccess" class="success" role="status"></p>
 
+                    <!-- INLOGKNOP -->
                     <button type="submit" class="full-width">
                         Inloggen
                     </button>
                 </form>
 
+                <!-- LINK NAAR REGISTREREN -->
                 <div class="register-link">
                     <p>Nog geen account?</p>
 
+                    <!-- ACCOUNT MAKEN -->
                     <button
                         type="button"
                         id="showRegister"
@@ -65,13 +91,22 @@
             </div>
         </section>
 
+
         <!-- REGISTREREN -->
+
         <section id="registerPage" class="auth-page" hidden>
             <div class="auth-panel">
+
+                <!-- TITEL VAN HET REGISTRATIESCHERM -->
                 <h1 id="registerTitle" tabindex="-1">Account maken</h1>
+
+                <!-- UITLEG BIJ HET REGISTREREN -->
                 <p>Kies een gebruikersnaam en wachtwoord.</p>
 
+                <!-- REGISTRATIEFORMULIER -->
                 <form id="registerForm">
+
+                    <!-- NIEUWE GEBRUIKERSNAAM -->
                     <label for="newUsername">Gebruikersnaam</label>
                     <input
                         type="text"
@@ -84,6 +119,7 @@
                         required
                     >
 
+                    <!-- NIEUW WACHTWOORD -->
                     <label for="newPassword">Wachtwoord</label>
                     <input
                         type="password"
@@ -93,10 +129,12 @@
                         required
                     >
 
+                    <!-- UITLEG OVER DE WACHTWOORDEISEN -->
                     <p class="field-note">
                         Gebruik minimaal 8 tekens.
                     </p>
 
+                    <!-- WACHTWOORD BEVESTIGEN -->
                     <label for="confirmPassword">
                         Herhaal wachtwoord
                     </label>
@@ -108,13 +146,16 @@
                         required
                     >
 
+                    <!-- FOUTMELDING BIJ REGISTREREN -->
                     <p id="registerError" class="error" role="alert"></p>
 
+                    <!-- REGISTRATIEKNOP -->
                     <button type="submit" class="full-width">
                         Registreren
                     </button>
                 </form>
 
+                <!-- TERUG NAAR HET INLOGSCHERM -->
                 <button
                     type="button"
                     id="backToLogin"
@@ -125,16 +166,22 @@
             </div>
         </section>
 
+
         <!-- AUTO-OVERZICHT -->
+
         <section id="carPage" hidden>
+
+            <!-- TITELBALK EN UITLOGKNOP -->
             <header class="topbar">
                 <h1 id="carTitle" tabindex="-1">Welkom</h1>
 
+                <!-- UITLOGGEN -->
                 <button type="button" id="logoutButton">
                     Uitloggen
                 </button>
             </header>
 
+            <!-- ZOEKVAK VOOR AUTO'S -->
             <div class="search-box">
                 <label for="search">Zoek een auto</label>
                 <input
@@ -144,16 +191,23 @@
                 >
             </div>
 
+            <!-- CONTAINER VOOR DE AUTOKAARTEN -->
             <div id="carContainer" class="container"></div>
 
+            <!-- MELDING ALS ER GEEN AUTO'S GEVONDEN ZIJN -->
             <p id="noResults" class="no-results" role="status" hidden>
                 Geen auto's gevonden.
             </p>
         </section>
+
     </main>
 
-    <!-- POP-UP -->
+
+    <!-- POP-UP MET AUTO-INFORMATIE -->
+
     <dialog id="modal" aria-labelledby="modalTitle">
+
+        <!-- POP-UP SLUITEN -->
         <button
             type="button"
             id="closeModal"
@@ -163,9 +217,17 @@
             &times;
         </button>
 
+        <!-- AFBEELDING VAN DE AUTO -->
         <img id="modalImg" alt="">
+
+        <!-- TITEL VAN DE AUTO -->
         <h2 id="modalTitle"></h2>
+
+        <!-- INFORMATIE OVER DE AUTO -->
         <p id="modalInfo"></p>
+
     </dialog>
+
 </body>
 </html>
+```

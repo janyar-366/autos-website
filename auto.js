@@ -1,31 +1,53 @@
+```javascript
+// ACCOUNTS EN STANDAARD INLOGGEGEVENS
+
 // Accounts blijven beschikbaar totdat de pagina wordt vernieuwd.
 
 const accounts = new Map([
     ["janyar", "auto123"]
 ]);
 
+
+// PAGINA-ELEMENTEN OPHALEN
+
 const loginPage = document.getElementById("loginPage");
 const registerPage = document.getElementById("registerPage");
 const carPage = document.getElementById("carPage");
 
+
+// FORMULIEREN OPHALEN
+
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
 
+
+// INVOERVELDEN VAN HET INLOGFORMULIER
+
 const username = document.getElementById("username");
 const password = document.getElementById("password");
+
+
+// INVOERVELDEN VAN HET REGISTRATIEFORMULIER
 
 const newUsername = document.getElementById("newUsername");
 const newPassword = document.getElementById("newPassword");
 const confirmPassword = document.getElementById("confirmPassword");
 
+
+// FOUT- EN SUCCESMELDINGEN
+
 const loginError = document.getElementById("loginError");
 const loginSuccess = document.getElementById("loginSuccess");
 const registerError = document.getElementById("registerError");
+
+
+// WACHTWOORDKNOP EN AUTO-ELEMENTEN
 
 const togglePassword = document.getElementById("togglePassword");
 const search = document.getElementById("search");
 const container = document.getElementById("carContainer");
 const modal = document.getElementById("modal");
+
 
 // PAGINA WISSELEN
 
@@ -36,6 +58,7 @@ function showPage(page) {
 
     page.hidden = false;
 }
+
 
 // REGISTRATIE OPENEN
 
@@ -53,6 +76,7 @@ document.getElementById("showRegister").addEventListener("click", function () {
     document.getElementById("registerTitle").focus();
 });
 
+
 // TERUG NAAR INLOGGEN
 
 document.getElementById("backToLogin").addEventListener("click", function () {
@@ -65,6 +89,7 @@ document.getElementById("backToLogin").addEventListener("click", function () {
     username.focus();
 });
 
+
 // ACCOUNT MAKEN
 
 registerForm.addEventListener("submit", function (event) {
@@ -75,6 +100,8 @@ registerForm.addEventListener("submit", function (event) {
     const chosenUsername = newUsername.value.trim().toLowerCase();
     const chosenPassword = newPassword.value;
 
+    // GEBRUIKERSNAAM CONTROLEREN
+
     if (!/^[a-z0-9_-]{3,30}$/.test(chosenUsername)) {
         registerError.textContent =
             "Gebruik 3 tot 30 letters, cijfers, streepjes of underscores.";
@@ -82,6 +109,8 @@ registerForm.addEventListener("submit", function (event) {
         newUsername.focus();
         return;
     }
+
+    // CONTROLEREN OF DE GEBRUIKERSNAAM AL BESTAAT
 
     if (accounts.has(chosenUsername)) {
         registerError.textContent =
@@ -91,6 +120,8 @@ registerForm.addEventListener("submit", function (event) {
         return;
     }
 
+    // WACHTWOORD CONTROLEREN
+
     if (chosenPassword.length < 8) {
         registerError.textContent =
             "Je wachtwoord moet minimaal 8 tekens bevatten.";
@@ -99,6 +130,8 @@ registerForm.addEventListener("submit", function (event) {
         return;
     }
 
+    // WACHTWOORDEN VERGELIJKEN
+
     if (chosenPassword !== confirmPassword.value) {
         registerError.textContent =
             "De wachtwoorden zijn niet hetzelfde.";
@@ -106,6 +139,8 @@ registerForm.addEventListener("submit", function (event) {
         confirmPassword.focus();
         return;
     }
+
+    // NIEUW ACCOUNT OPSLAAN
 
     accounts.set(chosenUsername, chosenPassword);
 
@@ -119,11 +154,14 @@ registerForm.addEventListener("submit", function (event) {
     loginSuccess.textContent =
         "Je account is aangemaakt! Je kunt nu inloggen.";
 
+    // TERUGGAAN NAAR HET INLOGSCHERM
+
     showPage(loginPage);
 
     document.title = "Auto Website | Inloggen";
     password.focus();
 });
+
 
 // INLOGGEN
 
@@ -136,12 +174,16 @@ loginForm.addEventListener("submit", function (event) {
     const enteredUsername = username.value.trim().toLowerCase();
     const enteredPassword = password.value;
 
+    // CONTROLEREN OF DE INLOGGEGEVENS JUIST ZIJN
+
     if (
         accounts.has(enteredUsername) &&
         accounts.get(enteredUsername) === enteredPassword
     ) {
         loginForm.reset();
         resetPasswordVisibility();
+
+        // AUTOPAGINA OPENEN
 
         showPage(carPage);
 
@@ -152,6 +194,9 @@ loginForm.addEventListener("submit", function (event) {
 
         carTitle.focus();
     } else {
+
+        // FOUTMELDING BIJ ONJUISTE INLOGGEGEVENS
+
         loginError.textContent =
             "De gebruikersnaam of het wachtwoord is onjuist.";
 
@@ -160,6 +205,7 @@ loginForm.addEventListener("submit", function (event) {
     }
 });
 
+
 // WACHTWOORD TONEN OF VERBERGEN
 
 function resetPasswordVisibility() {
@@ -167,6 +213,9 @@ function resetPasswordVisibility() {
     togglePassword.textContent = "Toon wachtwoord";
     togglePassword.setAttribute("aria-pressed", "false");
 }
+
+
+// WACHTWOORDZICHTBAARHEID WISSELEN
 
 togglePassword.addEventListener("click", function () {
     const showPassword = password.type === "password";
@@ -183,6 +232,7 @@ togglePassword.addEventListener("click", function () {
     );
 });
 
+
 // UITLOGGEN
 
 document.getElementById("logoutButton").addEventListener("click", function () {
@@ -194,8 +244,12 @@ document.getElementById("logoutButton").addEventListener("click", function () {
     loginError.textContent = "";
     loginSuccess.textContent = "";
 
+    // ZOEKVELD LEEGMAKEN EN AUTO'S HERSTELLEN
+
     search.value = "";
     filterCars();
+
+    // TERUGGAAN NAAR HET INLOGSCHERM
 
     showPage(loginPage);
 
@@ -203,7 +257,8 @@ document.getElementById("logoutButton").addEventListener("click", function () {
     username.focus();
 });
 
-// AUTO'S
+
+// AUTOGEGEVENS
 
 const cars = [
     {
@@ -262,6 +317,7 @@ const cars = [
     }
 ];
 
+
 // AUTOKAARTEN MAKEN
 
 cars.forEach(function (car) {
@@ -271,31 +327,46 @@ cars.forEach(function (car) {
     card.className = "card";
     card.dataset.name = car.name.toLowerCase();
 
+    // AFBEELDING VAN DE AUTO MAKEN
+
     const image = document.createElement("img");
     image.src = car.image;
     image.alt = car.name;
     image.loading = "lazy";
 
+    // TITEL VAN DE AUTO MAKEN
+
     const title = document.createElement("h3");
     title.textContent = car.name;
+
+    // KORTE BESCHRIJVING VAN DE AUTO MAKEN
 
     const summary = document.createElement("p");
     summary.textContent = car.summary;
 
+    // ELEMENTEN TOEVOEGEN AAN DE AUTOKAART
+
     card.append(image, title, summary);
+
+    // DETAILS OPENEN BIJ HET AANKLIKKEN VAN EEN AUTO
 
     card.addEventListener("click", function () {
         openModal(car.name, car.info, car.image);
     });
 
+    // AUTOKAART TOEVOEGEN AAN DE CONTAINER
+
     container.append(card);
 });
+
 
 // ZOEKFUNCTIE
 
 function filterCars() {
     const value = search.value.trim().toLowerCase();
     let visibleCars = 0;
+
+    // CONTROLEREN WELKE AUTO'S OVEREENKOMEN MET DE ZOEKTERM
 
     document.querySelectorAll(".card").forEach(function (card) {
         const matches = card.dataset.name.includes(value);
@@ -307,23 +378,37 @@ function filterCars() {
         }
     });
 
+    // MELDING TONEN ALS ER GEEN RESULTATEN ZIJN
+
     document.getElementById("noResults").hidden =
         visibleCars !== 0;
 }
 
-search.addEventListener("input", filterCars);4
+
+// ZOEKFUNCTIE UITVOEREN BIJ HET TYPEN
+
+search.addEventListener("input", filterCars);
+
 
 // POP-UP OPENEN
 
 function openModal(title, info, image) {
+
+    // TITEL EN INFORMATIE VAN DE AUTO INSTELLEN
+
     document.getElementById("modalTitle").textContent = title;
     document.getElementById("modalInfo").textContent = info;
+
+    // AFBEELDING VAN DE AUTO INSTELLEN
 
     document.getElementById("modalImg").src = image;
     document.getElementById("modalImg").alt = title;
 
+    // POP-UP WEERGEVEN
+
     modal.showModal();
 }
+
 
 // POP-UP SLUITEN
 
@@ -331,14 +416,22 @@ document.getElementById("closeModal").addEventListener("click", function () {
     modal.close();
 });
 
-// BUITEN DE POP-UP KLIKKEN
+
+// POP-UP SLUITEN DOOR BUITEN DE POP-UP TE KLIKKEN
 
 modal.addEventListener("click", function (event) {
+
+    // CONTROLEREN OF ER OP DE ACHTERGROND IS GEKLIKT
+
     if (event.target !== modal) {
         return;
     }
 
+    // POSITIE VAN DE POP-UP OPHALEN
+
     const bounds = modal.getBoundingClientRect();
+
+    // CONTROLEREN OF DE MUISKLIK BUITEN DE POP-UP VIEL
 
     const outside =
         event.clientX < bounds.left ||
@@ -346,7 +439,10 @@ modal.addEventListener("click", function (event) {
         event.clientY < bounds.top ||
         event.clientY > bounds.bottom;
 
+    // POP-UP SLUITEN ALS ER BUITEN IS GEKLIKT
+
     if (outside) {
         modal.close();
     }
 });
+```

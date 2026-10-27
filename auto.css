@@ -1,12 +1,17 @@
+```css
 /* ALGEMEEN */
 
 * {
     box-sizing: border-box;
 }
 
+/* ELEMENTEN DIE VERBORGEN MOETEN BLIJVEN */
+
 [hidden] {
     display: none !important;
 }
+
+/* ACHTERGROND EN STANDAARD OPMAAK VAN DE PAGINA */
 
 body {
     margin: 0;
@@ -24,10 +29,14 @@ body {
     background-attachment: fixed;
 }
 
+/* LETTERTYPE VAN KNOPPEN EN INVOERVELDEN */
+
 button,
 input {
     font: inherit;
 }
+
+/* STANDAARD OPMAAK VAN KNOPPEN */
 
 button {
     padding: 12px 20px;
@@ -38,9 +47,13 @@ button {
     cursor: pointer;
 }
 
+/* KLEUR VAN KNOPPEN BIJ HOVER */
+
 button:hover {
     background: #294b70;
 }
+
+/* FOCUSRAND BIJ KNOPPEN EN INVOERVELDEN */
 
 button:focus-visible,
 input:focus-visible {
@@ -48,11 +61,16 @@ input:focus-visible {
     outline-offset: 3px;
 }
 
+/* KNOPPEN OVER DE VOLLEDIGE BREEDTE */
+
 .full-width {
     width: 100%;
 }
 
+
 /* INLOGGEN EN REGISTREREN */
+
+/* CENTREREN VAN HET INLOG- EN REGISTRATIESCHERM */
 
 .auth-page {
     min-height: 100vh;
@@ -61,6 +79,8 @@ input:focus-visible {
     align-items: center;
     padding: 24px;
 }
+
+/* WIT VLAK VAN HET INLOG- EN REGISTRATIEFORMULIER */
 
 .auth-panel {
     width: 100%;
@@ -72,20 +92,28 @@ input:focus-visible {
     text-align: left;
 }
 
+/* TITEL VAN HET INLOG- EN REGISTRATIEFORMULIER */
+
 .auth-panel h1 {
     margin: 0 0 14px;
     font-size: 32px;
 }
 
+/* TEKST IN HET INLOG- EN REGISTRATIEFORMULIER */
+
 .auth-panel p {
     line-height: 1.5;
 }
+
+/* LABELS BOVEN DE INVOERVELDEN */
 
 label {
     display: block;
     margin: 20px 0 8px;
     font-weight: bold;
 }
+
+/* INVOERVELDEN */
 
 input {
     width: 100%;
@@ -97,6 +125,8 @@ input {
     color: #202631;
 }
 
+/* TEKSTKNOPPEN, ZOALS WACHTWOORD VERGETEN */
+
 .text-button {
     margin-top: 10px;
     padding: 6px 0;
@@ -105,10 +135,14 @@ input {
     text-decoration: underline;
 }
 
+/* HOVER-EFFECT VAN TEKSTKNOPPEN */
+
 .text-button:hover {
     background: transparent;
     color: #294b70;
 }
+
+/* KNOPPEN MET EEN RAND */
 
 .outline-button {
     border: 1px solid #172e47;
@@ -116,9 +150,13 @@ input {
     color: #172e47;
 }
 
+/* HOVER-EFFECT VAN KNOPPEN MET EEN RAND */
+
 .outline-button:hover {
     background: #e8eef5;
 }
+
+/* VLAK VOOR DE LINK NAAR REGISTREREN */
 
 .register-link {
     margin-top: 24px;
@@ -127,33 +165,47 @@ input {
     text-align: center;
 }
 
+/* TEKST IN HET REGISTRATIEVLAK */
+
 .register-link p {
     margin: 0 0 12px;
 }
+
+/* TERUGKNOP */
 
 .back-button {
     display: block;
     margin: 20px auto 0;
 }
 
+/* FOUTMELDINGEN */
+
 .error {
     color: #ae1829;
     font-size: 14px;
 }
+
+/* VERBERGEN VAN LEGE FOUT- EN SUCCESMELDINGEN */
 
 .error:empty,
 .success:empty {
     display: none;
 }
 
+/* SUCCESMELDINGEN */
+
 .success {
     color: #176534;
     font-size: 14px;
 }
 
+/* VERZENDKNOP VAN EEN FORMULIER */
+
 form button[type="submit"] {
     margin-top: 16px;
 }
+
+/* HULPTEKST EN INFORMATIETEKST */
 
 .demo-note,
 .field-note {
@@ -161,15 +213,22 @@ form button[type="submit"] {
     font-size: 13px;
 }
 
+/* INFORMATIE ONDER HET DEMOFORMULIER */
+
 .demo-note {
     margin-bottom: 0;
 }
+
+/* HULPTEKST ONDER EEN INVOERVELD */
 
 .field-note {
     margin: 8px 0 0;
 }
 
-/* TITEL EN UITLOGKNOP */
+
+/* TITELBALK EN UITLOGKNOP */
+
+/* INDELING VAN DE BOVENSTE BALK */
 
 .topbar {
     display: flex;
@@ -181,6 +240,8 @@ form button[type="submit"] {
     padding: 28px;
 }
 
+/* TITEL VAN DE PAGINA */
+
 .topbar h1 {
     margin: 0;
     padding: 12px 25px;
@@ -190,7 +251,10 @@ form button[type="submit"] {
     overflow-wrap: anywhere;
 }
 
+
 /* ZOEKVAK */
+
+/* CONTAINER VAN HET ZOEKVAK */
 
 .search-box {
     max-width: 400px;
@@ -198,11 +262,16 @@ form button[type="submit"] {
     padding: 0 20px;
 }
 
+/* LABEL VAN HET ZOEKVAK */
+
 .search-box label {
     color: white;
 }
 
+
 /* AUTOKAARTEN */
+
+/* CONTAINER VOOR ALLE AUTOKAARTEN */
 
 .container {
     display: flex;
@@ -211,6 +280,8 @@ form button[type="submit"] {
     gap: 28px;
     padding: 20px 24px 40px;
 }
+
+/* OPMAAK VAN EEN AUTOKAART */
 
 .card {
     width: 260px;
@@ -224,10 +295,14 @@ form button[type="submit"] {
     transition: transform 0.2s;
 }
 
+/* HOVER-EFFECT VAN EEN AUTOKAART */
+
 .card:hover {
     background: white;
     transform: translateY(-5px);
 }
+
+/* AFBEELDING IN EEN AUTOKAART */
 
 .card img {
     display: block;
@@ -236,10 +311,14 @@ form button[type="submit"] {
     object-fit: cover;
 }
 
+/* TITEL VAN EEN AUTOKAART */
+
 .card h3 {
     margin: 14px 10px 8px;
     font-size: 19px;
 }
+
+/* TEKST ONDER DE TITEL VAN EEN AUTOKAART */
 
 .card p {
     margin: 0;
@@ -247,11 +326,16 @@ form button[type="submit"] {
     color: #606873;
 }
 
+/* MELDING WANNEER ER GEEN AUTO'S GEVONDEN ZIJN */
+
 .no-results {
     color: white;
 }
 
+
 /* POP-UP */
+
+/* ALGEMENE OPMAAK VAN DE POP-UP */
 
 dialog {
     width: 420px;
@@ -266,9 +350,13 @@ dialog {
     text-align: left;
 }
 
+/* DONKERE ACHTERGROND ACHTER DE POP-UP */
+
 dialog::backdrop {
     background: rgba(0, 0, 0, 0.75);
 }
+
+/* AFBEELDING IN DE POP-UP */
 
 dialog img {
     display: block;
@@ -278,9 +366,13 @@ dialog img {
     border-radius: 10px;
 }
 
+/* TEKST IN DE POP-UP */
+
 dialog p {
     line-height: 1.6;
 }
+
+/* SLUITKNOP VAN DE POP-UP */
 
 .close {
     display: block;
@@ -289,44 +381,69 @@ dialog p {
     font-size: 26px;
 }
 
+
 /* TELEFOON */
 
+/* AANPASSINGEN VOOR SCHERMEN VAN MAXIMAAL 600 PIXELS */
+
 @media (max-width: 600px) {
+
+    /* PADDING VAN HET INLOG- EN REGISTRATIEFORMULIER */
+
     .auth-panel {
         padding: 26px;
     }
+
+    /* TITELGROOTTE OP EEN KLEIN SCHERM */
 
     .auth-panel h1,
     .topbar h1 {
         font-size: 26px;
     }
 
+    /* INDELING VAN DE TITELBALK OP EEN KLEIN SCHERM */
+
     .topbar {
         padding: 20px 16px;
         flex-wrap: wrap;
     }
 
+    /* PADDING VAN DE PAGINATITEL OP EEN KLEIN SCHERM */
+
     .topbar h1 {
         padding: 12px 16px;
     }
+
+    /* RUIMTE TUSSEN AUTOKAARTEN OP EEN KLEIN SCHERM */
 
     .container {
         padding: 16px 16px 32px;
         gap: 20px;
     }
 
+    /* BREEDTE VAN AUTOKAARTEN OP EEN KLEIN SCHERM */
+
     .card {
         width: 100%;
         max-width: 350px;
     }
+
+    /* AFBEELDINGEN IN AUTOKAARTEN OP EEN KLEIN SCHERM */
 
     .card img {
         height: 200px;
     }
 }
 
+
+/* ANIMATIES VERMINDEREN VOOR GEBRUIKERS DIE DIT INSTELLEN */
+
 @media (prefers-reduced-motion: reduce) {
+
+    /* ANIMATIE VAN AUTOKAARTEN UITSCHAKELEN */
+
     .card {
         transition: none;
     }
 }
+```

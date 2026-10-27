@@ -1,4 +1,3 @@
-```css
 /* ALGEMEEN */
 
 * {
@@ -437,13 +436,9 @@ dialog p {
 
 
 /* ANIMATIES VERMINDEREN VOOR GEBRUIKERS DIE DIT INSTELLEN */
-
 @media (prefers-reduced-motion: reduce) {
-
-    /* ANIMATIE VAN AUTOKAARTEN UITSCHAKELEN */
-
     .card {
         transition: none;
     }
 }
-```
+

@@ -1,4 +1,4 @@
-```javascript
+javascript
 // ACCOUNTS EN STANDAARD INLOGGEGEVENS
 
 // Accounts blijven beschikbaar totdat de pagina wordt vernieuwd.
@@ -445,4 +445,3 @@ modal.addEventListener("click", function (event) {
         modal.close();
     }
 });
-```

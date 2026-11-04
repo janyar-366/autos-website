@@ -1,15 +1,12 @@
-```html
 <!DOCTYPE html>
 <html lang="nl">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>My Everything ❤️</title>
 
 <style>
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -79,13 +76,8 @@ nav a:hover {
 }
 
 @keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.15);
-  }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
 }
 
 .birthday-button {
@@ -105,7 +97,6 @@ nav a:hover {
   background: #c2185b;
   transform: scale(1.05);
 }
-
 
 /* LIEFDESBRIEF */
 
@@ -138,23 +129,17 @@ nav a:hover {
 }
 
 @keyframes heartbeat {
-  0%, 100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.15);
-  }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
 }
+
+/* OPEN BRIEF */
 
 .love-intro p {
   font-size: 19px;
   margin-top: 15px;
   color: #a51c50;
 }
-
-
-/* OPEN BRIEF */
 
 .love-letter {
   display: none;
@@ -191,7 +176,6 @@ nav a:hover {
   color: #8b1745;
 }
 
-
 /* ZWEVENDE HARTJES */
 
 .floating-heart {
@@ -210,7 +194,6 @@ nav a:hover {
   }
 }
 
-
 /* GALERIJ */
 
 .gallery {
@@ -224,7 +207,6 @@ nav a:hover {
   font-size: 32px;
   margin-bottom: 15px;
 }
-
 
 /* CATEGORIEËN */
 
@@ -254,7 +236,6 @@ nav a:hover {
   color: white;
 }
 
-
 /* UPLOAD */
 
 .upload-controls {
@@ -282,7 +263,6 @@ nav a:hover {
 input[type="file"] {
   display: none;
 }
-
 
 /* SWIPE GALERIJ */
 
@@ -321,7 +301,6 @@ input[type="file"] {
   font-size: 17px;
 }
 
-
 /* NAVIGATIE */
 
 .navigation {
@@ -352,13 +331,6 @@ input[type="file"] {
   cursor: not-allowed;
 }
 
-.counter {
-  font-size: 16px;
-  font-weight: bold;
-  color: #a51c50;
-}
-
-
 /* VERWIJDEREN */
 
 .delete-button {
@@ -378,11 +350,7 @@ footer {
   color: #9b315b;
 }
 
-
-/* MOBIEL */
-
 @media (max-width: 600px) {
-
   header {
     flex-direction: column;
     gap: 18px;
@@ -427,26 +395,20 @@ footer {
   .love-letter p {
     font-size: 16px;
   }
-
 }
-
 </style>
 </head>
-
 
 <body>
 
 <header>
-
   <div class="logo">❤️ My Everything</div>
 
   <nav>
     <a href="#home">Home</a>
     <a href="#fotos">Herinneringen</a>
   </nav>
-
 </header>
-
 
 <!-- HOMEPAGINA -->
 
@@ -469,12 +431,9 @@ footer {
 
 </section>
 
-
 <!-- INTERACTIEVE LIEFDESBRIEF -->
 
 <section class="message">
-
-  <!-- HART -->
 
   <div class="love-intro" id="loveIntro">
 
@@ -490,15 +449,11 @@ footer {
 
   </div>
 
-
-  <!-- LIEFDESBRIEF -->
-
   <div class="love-letter" id="loveLetter">
 
     <h2>HAPPY BIRTHDAY MY LOVE ❤️</h2>
 
     <p>
-
       Beste Fatima Kassem,
 
       <br><br>
@@ -537,7 +492,6 @@ footer {
         <br>
         I LOVE YOU FOREVER! ❤️
       </strong>
-
     </p>
 
     <div style="font-size:40px; margin-top:20px;">
@@ -548,7 +502,6 @@ footer {
 
 </section>
 
-
 <!-- FOTO'S EN VIDEO'S -->
 
 <section class="gallery" id="fotos">
@@ -557,33 +510,23 @@ footer {
 
   <p>Al onze mooie momenten samen ❤️</p>
 
-
-  <!-- CATEGORIEËN -->
-
   <div class="category-buttons">
 
     <button
       class="category-button active"
       id="photoTab"
       onclick="switchCategory('image')">
-
       📷 Foto's
-
     </button>
 
     <button
       class="category-button"
       id="videoTab"
       onclick="switchCategory('video')">
-
       🎥 Video's
-
     </button>
 
   </div>
-
-
-  <!-- UPLOAD -->
 
   <div class="upload-controls">
 
@@ -611,19 +554,15 @@ footer {
 
   </div>
 
-
-  <!-- SWIPE GALERIJ -->
-
   <div class="viewer">
 
     <div class="media-container" id="mediaContainer">
 
       <p class="empty-message" id="emptyMessage">
-        Nog geen herinneringen toegevoegd ❤️
+        Onze herinneringen verschijnen hier ❤️
       </p>
 
     </div>
-
 
     <div class="navigation">
 
@@ -631,9 +570,7 @@ footer {
         class="nav-button"
         id="prevButton"
         onclick="previousMedia()">
-
         ‹
-
       </button>
 
       <span class="counter" id="counter">
@@ -644,22 +581,17 @@ footer {
         class="nav-button"
         id="nextButton"
         onclick="nextMedia()">
-
         ›
-
       </button>
 
     </div>
-
 
     <button
       class="delete-button"
       id="deleteButton"
       onclick="deleteCurrentMedia()"
       style="display:none">
-
       🗑 Verwijder herinnering
-
     </button>
 
   </div>
@@ -670,22 +602,40 @@ footer {
 
 </section>
 
-
 <footer>
   Gemaakt met liefde ❤️
 </footer>
 
-
 <script>
 
+/* =====================================
+   FOTO'S DIE AUTOMATISCH WORDEN GELADEN
+===================================== */
 
-// DATABASE EN ELEMENTEN
+const imageFiles = [
+  ...Array.from({ length: 68 }, (_, index) =>
+    "foto-" + (index + 1) + ".jpeg"
+  )
+];
+/* =====================================
+   VIDEO'S
+   Vul hier de videobestandsnamen in.
+===================================== */
+
+const videoFiles = [
+  // "video1.mp4",
+  // "video2.mp4"
+];
+
+
+/* =====================================
+   ELEMENTEN
+===================================== */
 
 const photoUpload = document.getElementById("photoUpload");
 const videoUpload = document.getElementById("videoUpload");
 
 const mediaContainer = document.getElementById("mediaContainer");
-
 const counter = document.getElementById("counter");
 
 const prevButton = document.getElementById("prevButton");
@@ -696,154 +646,145 @@ const deleteButton = document.getElementById("deleteButton");
 const photoTab = document.getElementById("photoTab");
 const videoTab = document.getElementById("videoTab");
 
-
 let db;
-
 let currentCategory = "image";
-
 let memories = [];
-
 let currentIndex = 0;
-
 let touchStartX = 0;
 let touchEndX = 0;
-
 let currentObjectURL = null;
 
 
-// DATABASE OPENEN
+/* =====================================
+   VASTE FOTO'S EN VIDEO'S
+===================================== */
+
+const defaultImages = imageFiles.map((filename, index) => ({
+  id: "static-image-" + index,
+  type: "image",
+  name: filename,
+  url: "images/" + encodeURIComponent(filename),
+  isStatic: true
+}));
+
+const defaultVideos = videoFiles.map((filename, index) => ({
+  id: "static-video-" + index,
+  type: "video",
+  name: filename,
+  url: "videos/" + encodeURIComponent(filename),
+  isStatic: true
+}));
+
+
+/* =====================================
+   DATABASE OPENEN
+===================================== */
 
 const request = indexedDB.open("MyEverythingDatabase", 1);
 
 request.onupgradeneeded = function(event) {
-
   db = event.target.result;
 
   if (!db.objectStoreNames.contains("memories")) {
-
     db.createObjectStore("memories", {
       keyPath: "id",
       autoIncrement: true
     });
-
   }
-
 };
-
 
 request.onsuccess = function(event) {
-
   db = event.target.result;
-
   loadMemories();
-
 };
-
 
 request.onerror = function() {
-
   alert("Er ging iets mis met het openen van de database.");
-
 };
 
 
-// BESTANDEN OPSLAAN
+/* =====================================
+   BESTANDEN OPSLAAN
+===================================== */
 
 function saveFile(file, type) {
-
-  const transaction = db.transaction(
-    "memories",
-    "readwrite"
-  );
-
+  const transaction = db.transaction("memories", "readwrite");
   const store = transaction.objectStore("memories");
 
   store.add({
-
     file: file,
-
     type: type,
-
     name: file.name
-
   });
 
   transaction.oncomplete = function() {
-
     loadMemories();
-
   };
 
   transaction.onerror = function() {
-
     alert("Opslaan mislukt. Controleer de beschikbare opslagruimte.");
-
   };
-
 }
 
 
-// BESTANDEN TOEVOEGEN
+/* =====================================
+   BESTANDEN UPLOADEN
+===================================== */
 
 function displayFiles(files, type) {
-
   if (!db) {
-
     alert("Database wordt nog geladen. Probeer opnieuw.");
-
     return;
-
   }
 
   for (const file of files) {
-
     saveFile(file, type);
-
   }
-
 }
 
 
-// ALLE HERINNERINGEN LADEN
+/* =====================================
+   HERINNERINGEN LADEN
+===================================== */
 
 function loadMemories() {
-
-  const transaction = db.transaction(
-    "memories",
-    "readonly"
-  );
-
+  const transaction = db.transaction("memories", "readonly");
   const store = transaction.objectStore("memories");
+  const getRequest = store.getAll();
 
-  const request = store.getAll();
+  getRequest.onsuccess = function() {
 
-  request.onsuccess = function() {
+    const uploadedMemories = getRequest.result;
 
-    const allMemories = request.result;
+    const staticMemories =
+      currentCategory === "image"
+      ? defaultImages
+      : defaultVideos;
 
-    memories = allMemories.filter(
+    const uploadedForCategory = uploadedMemories.filter(
       item => item.type === currentCategory
     );
 
+    memories = [
+      ...staticMemories,
+      ...uploadedForCategory
+    ];
+
     if (currentIndex >= memories.length) {
-
       currentIndex = Math.max(0, memories.length - 1);
-
     }
 
     showMedia();
-
   };
-
 }
 
 
-// CATEGORIE WISSELEN
+/* =====================================
+   CATEGORIE WISSELEN
+===================================== */
 
 function switchCategory(category) {
-
   currentCategory = category;
-
   currentIndex = 0;
 
   photoTab.classList.toggle(
@@ -857,20 +798,18 @@ function switchCategory(category) {
   );
 
   loadMemories();
-
 }
 
 
-// FOTO OF VIDEO WEERGEVEN
+/* =====================================
+   FOTO OF VIDEO WEERGEVEN
+===================================== */
 
 function showMedia() {
 
   if (currentObjectURL) {
-
     URL.revokeObjectURL(currentObjectURL);
-
     currentObjectURL = null;
-
   }
 
   mediaContainer.innerHTML = "";
@@ -878,7 +817,6 @@ function showMedia() {
   if (memories.length === 0) {
 
     const message = document.createElement("p");
-
     message.className = "empty-message";
 
     message.textContent =
@@ -889,90 +827,94 @@ function showMedia() {
     mediaContainer.appendChild(message);
 
     counter.textContent = "0 / 0";
-
     prevButton.disabled = true;
-
     nextButton.disabled = true;
-
     deleteButton.style.display = "none";
 
     return;
-
   }
 
   const memory = memories[currentIndex];
 
-  currentObjectURL = URL.createObjectURL(memory.file);
-
   let media;
 
-  if (memory.type === "image") {
+  if (memory.isStatic) {
+    media = document.createElement(
+      memory.type === "image" ? "img" : "video"
+    );
 
-    media = document.createElement("img");
-
-    media.src = currentObjectURL;
-
-    media.alt = memory.name;
+    media.src = memory.url;
 
   } else {
 
-    media = document.createElement("video");
+    currentObjectURL = URL.createObjectURL(memory.file);
 
-    media.src = currentObjectURL;
-
-    media.controls = true;
-
-    media.playsInline = true;
-
+    if (memory.type === "image") {
+      media = document.createElement("img");
+      media.src = currentObjectURL;
+      media.alt = memory.name;
+    } else {
+      media = document.createElement("video");
+      media.src = currentObjectURL;
+      media.controls = true;
+      media.playsInline = true;
+    }
   }
 
-  mediaContainer.appendChild(media);
+  if (memory.type === "video") {
+    media.controls = true;
+    media.playsInline = true;
+  }
 
+  if (memory.type === "image") {
+    media.alt = memory.name;
+  }
+
+  media.onerror = function() {
+    mediaContainer.innerHTML =
+      '<p class="empty-message">Deze afbeelding kon niet worden geladen. Controleer de bestandsnaam en de map images.</p>';
+  };
+
+  mediaContainer.appendChild(media);
 
   counter.textContent =
     (currentIndex + 1) + " / " + memories.length;
 
-
   prevButton.disabled = currentIndex === 0;
-
   nextButton.disabled = currentIndex === memories.length - 1;
 
-  deleteButton.style.display = "inline-block";
-
+  deleteButton.style.display =
+    memory.isStatic ? "none" : "inline-block";
 }
 
 
-// VOLGENDE FOTO OF VIDEO
+/* =====================================
+   VOLGENDE HERINNERING
+===================================== */
 
 function nextMedia() {
-
   if (currentIndex < memories.length - 1) {
-
     currentIndex++;
-
     showMedia();
-
   }
-
 }
 
 
-// VORIGE FOTO OF VIDEO
+/* =====================================
+   VORIGE HERINNERING
+===================================== */
 
 function previousMedia() {
-
   if (currentIndex > 0) {
-
     currentIndex--;
-
     showMedia();
-
   }
-
 }
 
 
-// HERINNERING VERWIJDEREN
+/* =====================================
+   HERINNERING VERWIJDEREN
+===================================== */
 
 function deleteCurrentMedia() {
 
@@ -980,128 +922,106 @@ function deleteCurrentMedia() {
 
   const memory = memories[currentIndex];
 
-  if (!confirm("Wil je deze herinnering verwijderen?")) {
-
+  if (memory.isStatic) {
+    alert("Deze foto hoort bij de website en kan niet hier worden verwijderd.");
     return;
-
   }
 
-  const transaction = db.transaction(
-    "memories",
-    "readwrite"
-  );
+  if (!confirm("Wil je deze herinnering verwijderen?")) {
+    return;
+  }
 
+  const transaction = db.transaction("memories", "readwrite");
   const store = transaction.objectStore("memories");
 
   store.delete(memory.id);
 
   transaction.oncomplete = function() {
-
     loadMemories();
-
   };
-
 }
 
 
-// FOTO'S UPLOADEN
+/* =====================================
+   FOTO'S UPLOADEN
+===================================== */
 
 photoUpload.addEventListener("change", function() {
-
   displayFiles(this.files, "image");
-
   this.value = "";
-
 });
 
 
-// VIDEO'S UPLOADEN
+/* =====================================
+   VIDEO'S UPLOADEN
+===================================== */
 
 videoUpload.addEventListener("change", function() {
-
   displayFiles(this.files, "video");
-
   this.value = "";
-
 });
 
 
-// SWIPEN MET JE VINGER
+/* =====================================
+   SWIPEN MET JE VINGER
+===================================== */
 
 mediaContainer.addEventListener("touchstart", function(event) {
-
   touchStartX = event.changedTouches[0].screenX;
-
 }, { passive: true });
-
 
 mediaContainer.addEventListener("touchend", function(event) {
-
   touchEndX = event.changedTouches[0].screenX;
-
   handleSwipe();
-
 }, { passive: true });
 
-
 function handleSwipe() {
-
   const difference = touchStartX - touchEndX;
 
   if (difference > 50) {
-
     nextMedia();
-
   }
 
   if (difference < -50) {
-
     previousMedia();
-
   }
-
 }
 
 
-// PIJLTJESTOETSEN
+/* =====================================
+   PIJLTJESTOETSEN
+===================================== */
 
 document.addEventListener("keydown", function(event) {
 
   if (event.key === "ArrowRight") {
-
     nextMedia();
-
   }
 
   if (event.key === "ArrowLeft") {
-
     previousMedia();
-
   }
 
 });
 
 
-// HART OPENEN
+/* =====================================
+   HART OPENEN
+===================================== */
 
 function openLoveLetter() {
 
   const intro = document.getElementById("loveIntro");
-
   const letter = document.getElementById("loveLetter");
 
   intro.style.transition = "0.7s";
-
   intro.style.opacity = "0";
-
   intro.style.transform = "scale(1.5)";
 
   setTimeout(() => {
 
     intro.style.display = "none";
-
     letter.classList.add("open");
-
     createFloatingHearts();
 
   }, 700);
@@ -1109,7 +1029,9 @@ function openLoveLetter() {
 }
 
 
-// ZWEVENDE HARTJES
+/* =====================================
+   ZWEVENDE HARTJES
+===================================== */
 
 function createFloatingHearts() {
 
@@ -1131,9 +1053,7 @@ function createFloatingHearts() {
       document.body.appendChild(heart);
 
       setTimeout(() => {
-
         heart.remove();
-
       }, 4000);
 
     }, i * 150);
@@ -1143,7 +1063,9 @@ function createFloatingHearts() {
 }
 
 
-// VERJAARDAGSVERRASSING
+/* =====================================
+   VERJAARDAGSVERRASSING
+===================================== */
 
 function showSurprise() {
 
@@ -1158,4 +1080,3 @@ function showSurprise() {
 
 </body>
 </html>
-```

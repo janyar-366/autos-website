@@ -260,6 +260,12 @@ nav a:hover {
   background: #c2185b;
 }
 
+.database-status {
+  margin: 15px 0;
+  color: #a34a70;
+  text-align: center;
+}
+
 input[type="file"] {
   display: none;
 }
@@ -554,6 +560,8 @@ footer {
 
   </div>
 
+  <p class="database-status" id="databaseStatus" role="status" aria-live="polite" hidden></p>
+
   <div class="viewer">
 
     <div class="media-container" id="mediaContainer">
@@ -645,6 +653,7 @@ const deleteButton = document.getElementById("deleteButton");
 
 const photoTab = document.getElementById("photoTab");
 const videoTab = document.getElementById("videoTab");
+const databaseStatus = document.getElementById("databaseStatus");
 
 let db;
 let currentCategory = "image";
@@ -680,27 +689,47 @@ const defaultVideos = videoFiles.map((filename, index) => ({
    DATABASE OPENEN
 ===================================== */
 
-const request = indexedDB.open("MyEverythingDatabase", 1);
-
-request.onupgradeneeded = function(event) {
-  db = event.target.result;
-
-  if (!db.objectStoreNames.contains("memories")) {
-    db.createObjectStore("memories", {
-      keyPath: "id",
-      autoIncrement: true
-    });
-  }
-};
-
-request.onsuccess = function(event) {
-  db = event.target.result;
+function handleDatabaseUnavailable(error) {
+  console.error("De herinneringenopslag kon niet worden geopend.", error);
+  db = null;
+  databaseStatus.hidden = false;
+  databaseStatus.textContent =
+    "De foto's op de website blijven beschikbaar. Uploaden is niet beschikbaar in deze browser.";
   loadMemories();
-};
+}
 
-request.onerror = function() {
-  alert("Er ging iets mis met het openen van de database.");
-};
+try {
+  const request = indexedDB.open("MyEverythingDatabase", 1);
+
+  request.onupgradeneeded = function(event) {
+    db = event.target.result;
+
+    if (!db.objectStoreNames.contains("memories")) {
+      db.createObjectStore("memories", {
+        keyPath: "id",
+        autoIncrement: true
+      });
+    }
+  };
+
+  request.onsuccess = function(event) {
+    db = event.target.result;
+    databaseStatus.hidden = true;
+    loadMemories();
+  };
+
+  request.onerror = function() {
+    handleDatabaseUnavailable(request.error);
+  };
+
+  request.onblocked = function() {
+    handleDatabaseUnavailable(
+      new Error("De herinneringendatabase is geblokkeerd.")
+    );
+  };
+} catch (error) {
+  handleDatabaseUnavailable(error);
+}
 
 
 /* =====================================
@@ -748,18 +777,33 @@ function displayFiles(files, type) {
 ===================================== */
 
 function loadMemories() {
+  const staticMemories =
+    currentCategory === "image"
+    ? defaultImages
+    : defaultVideos;
+
+  if (!db) {
+    memories = staticMemories;
+
+    if (currentIndex >= memories.length) {
+      currentIndex = Math.max(0, memories.length - 1);
+    }
+
+    showMedia();
+    return;
+  }
+
   const transaction = db.transaction("memories", "readonly");
   const store = transaction.objectStore("memories");
   const getRequest = store.getAll();
 
+  transaction.onerror = function() {
+    handleDatabaseUnavailable(transaction.error);
+  };
+
   getRequest.onsuccess = function() {
 
     const uploadedMemories = getRequest.result;
-
-    const staticMemories =
-      currentCategory === "image"
-      ? defaultImages
-      : defaultVideos;
 
     const uploadedForCategory = uploadedMemories.filter(
       item => item.type === currentCategory
@@ -775,6 +819,10 @@ function loadMemories() {
     }
 
     showMedia();
+  };
+
+  getRequest.onerror = function() {
+    handleDatabaseUnavailable(getRequest.error);
   };
 }
 

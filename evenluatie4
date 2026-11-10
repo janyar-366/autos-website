@@ -1,0 +1,5 @@
+# Evaluatie
+
+Tijdens dit project heb ik het inlog- en registratiesysteem van de bestaande auto website verbeterd. Ik heb ervoor gezorgd dat nieuwe accounts worden opgeslagen met localStorage en niet meer verdwijnen als de website wordt afgesloten.
+
+Ik heb geleerd om beter met JavaScript en localStorage te werken. Een verbeterpunt is om in de toekomst een database te gebruiken, zodat accounts ook op andere apparaten beschikbaar zijn.    

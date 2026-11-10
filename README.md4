@@ -15,10 +15,9 @@ Het doel is om de inlogfunctie te verbeteren en te leren hoe gebruikersgegevens 
 ## Wat wordt er gebruikt?
 - Een inlogpagina.
 - Een registratiepagina.
-- localStorage om accounts op te slaan.
+- json om accounts op te slaan.
 - Een functie om wachtwoorden te controleren.
 - Een functie om ingelogd te blijven.
-- Een uitlogfunctie.
 
 ## Auteur
 Naam: Janyar  

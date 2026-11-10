@@ -1,0 +1,28 @@
+# Auto Website
+
+## Over het project
+Dit project gaat over een auto website met een inlog- en registratiesysteem. Gebruikers kunnen een account aanmaken, inloggen
+## Doel
+Het doel is om de inlogfunctie te verbeteren en te leren hoe gebruikersgegevens opgeslagen kunnen worden, zodat accounts blijven bestaan wanneer de website opnieuw wordt geopend.
+
+## Gebruikte programma's
+- HTML
+- CSS
+- JavaScript
+- Visual Studio Code
+- GitHub
+
+## Wat wordt er gebruikt?
+- Een inlogpagina.
+- Een registratiepagina.
+- localStorage om accounts op te slaan.
+- Een functie om wachtwoorden te controleren.
+- Een functie om ingelogd te blijven.
+- Een uitlogfunctie.
+- Een overzicht met verschillende auto's.
+- Een zoekfunctie voor auto's.
+- Een pop-up met extra informatie over auto's.
+
+## Auteur
+Naam: Janyar  
+Datum: 10-11-2026

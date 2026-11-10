@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Everything ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #ffe4ef, #ffc1d8, #fff0f5);
+      color: #8b1745;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      background: rgba(255, 255, 255, 0.45);
+      border-bottom: 1px solid #ffffff80;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #8b1745;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #e91e63;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px 40px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 7vw, 76px);
+      font-style: italic;
+      color: #c2185b;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.8;
+      max-width: 650px;
+      margin: 0 auto 25px;
+    }
+
+    .heart {
+      font-size: 45px;
+      margin: 15px 0;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    .birthday-button {
+      display: inline-block;
+      background: #e84380;
+      color: white;
+      padding: 16px 35px;
+      border-radius: 40px;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .birthday-button:hover {
+      background: #c2185b;
+      transform: scale(1.05);
+    }
+
+    .message {
+      max-width: 700px;
+      margin: 35px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.55);
+      border-radius: 25px;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .message h2 {
+      margin-bottom: 12px;
+    }
+
+    .gallery {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .gallery h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .upload-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .upload-label {
+      display: inline-block;
+      background: #e84380;
+      color: white;
+      padding: 13px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .upload-label:hover {
+      background: #c2185b;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .media-grid img,
+    .media-grid video {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px #a51c5030;
+      background: #fff;
+    }
+
+    .empty-message {
+      color: #a34a70;
+      margin: 20px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 15px;
+      color: #9b315b;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      nav {
+        gap: 20px;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .message {
+        margin: 25px 15px;
+      }
+    } body {
+    background-image: url("images/achtergrond.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.rozen {
+    background-image: url("images/rozen.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.taart {
+    background-image: url("images/verjaardagstaart.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">❤️ My Everything</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#fotos">Foto's</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="heart">♡</div>
+
+    <h1>Gefeliciteerd, lieve vriendin!</h1>
+
+    <p>
+      Vandaag is jouw dag! 🎉<br>
+      Ik hoop dat je een super fijne verjaardag hebt,
+      vol liefde, geluk en mooie momenten.<br>
+      Je verdient het allemaal! ❤️
+    </p>
+
+    <button class="birthday-button" onclick="showSurprise()">
+      Fijne verjaardag! ❤️
+    </button>
+
+    <div class="heart">♡</div>
+  </section>
+
+  <section class="message">
+    <h2>Liefs van mij ❤️</h2>
+    <p>
+      Dankjewel dat je er altijd bent.
+      Geniet van deze speciale dag.
+      Je betekent ontzettend veel voor mij.
+    </p>
+  </section>
+
+  <section class="gallery" id="fotos">
+    <h2>Onze herinneringen ❤️</h2>
+    <p>Voeg hier jullie mooiste foto's en video's toe.</p>
+
+    <div class="upload-controls">
+      <label class="upload-label" for="photoUpload">
+        📷 Foto's toevoegen
+      </label>
+
+      <input
+        type="file"
+        id="photoUpload"
+        accept="image/*"
+        multiple
+      >
+
+      <label class="upload-label" for="videoUpload">
+        🎥 Video's toevoegen
+      </label>
+
+      <input
+        type="file"
+        id="videoUpload"
+        accept="video/*"
+        multiple
+      >
+    </div>
+
+    <p class="empty-message" id="emptyMessage">
+      Jullie foto's en video's verschijnen hier.
+    </p>
+
+    <div class="media-grid" id="mediaGrid"></div>
+  </section>
+
+  <footer>
+    Gemaakt met liefde ❤️
+  </footer>
+
+  <script>
+    const photoUpload = document.getElementById("photoUpload");
+    const videoUpload = document.getElementById("videoUpload");
+    const mediaGrid = document.getElementById("mediaGrid");
+    const emptyMessage = document.getElementById("emptyMessage");
+
+    function displayFiles(files, type) {
+      for (const file of files) {
+        const url = URL.createObjectURL(file);
+        let media;
+
+        if (type === "image") {
+          media = document.createElement("img");
+          media.alt = file.name;
+          media.src = url;
+        } else {
+          media = document.createElement("video");
+          media.src = url;
+          media.controls = true;
+          media.playsInline = true;
+        }
+
+        mediaGrid.appendChild(media);
+      }
+
+      if (mediaGrid.children.length > 0) {
+        emptyMessage.style.display = "none";
+      }
+    }
+
+    photoUpload.addEventListener("change", function () {
+      displayFiles(this.files, "image");
+      this.value = "";
+    });
+
+    videoUpload.addEventListener("change", function () {
+      displayFiles(this.files, "video");
+      this.value = "";
+    });
+
+    function showSurprise() {
+      alert(
+        "Jij bent mijn mooiste cadeau. " +
+        "Ik hou ontzettend veel van jou! ❤️"
+      );
+    }
+  </script>
+
+</body>
+</html>
